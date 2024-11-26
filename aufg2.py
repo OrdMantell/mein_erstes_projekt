@@ -1,3 +1,4 @@
+'''
 # Aufgabe 1.1
 startwert = 10
 zwischenwert = startwert + 5
@@ -63,3 +64,37 @@ def zahlenvergleich():
         print(f"Die Summe aus {zAeingabe} und {zBeingabe} ist ungerade.")
 zahlenvergleich()
 
+# Aufgabe 3 & 4
+vname = ("Nico")
+nname =("Kruse")
+ausb =("Software Developer")
+zitat =("Will somebody get this big walking carpet out of my way?!")
+
+print(f"Hey, my name is {vname} {nname}. \nI just recently started my journey as a {ausb}.\n")
+print(f"Here's a quote from one fo my favourite movies. Can you guess which one?\n\"{zitat}\"")
+
+# Aufgabe 5
+print("Hallo")
+bname =str(input("Bitte geben deinen Namen ein: "))
+balter =int(input("Bitte gebe dein Alter ein: "))
+bberuf =str(input("Welchen Beruf hast du? "))
+
+print(f"Danke für die Info {bname}.\n Dass du im stolzen Alter von {balter} Jahren noch als {bberuf} tätig bist, ist eine tolle Leistung. Respekt!")
+
+# Aufgabe 6
+nurzahl =str(input("Bitte gebe eine Ziffernfolge ein: "))
+if nurzahl.isdigit():
+    print("Danke.")
+else:
+    print("Bitte gebe nur Ziffern ein, keine Buchstaben und Sonderzeichen.")
+'''
+# Aufgabe 7
+ganzzahl = int(36)
+kommazahl = float(172.56)
+zeichen = str("buchstaben")
+logisch = bool(True)
+
+print(ganzzahl, type(ganzzahl))
+print(kommazahl, type(kommazahl))
+print(zeichen, type(zeichen))
+print(logisch, type(logisch))
