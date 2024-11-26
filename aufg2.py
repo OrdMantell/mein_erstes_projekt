@@ -1,4 +1,4 @@
-'''
+
 # Aufgabe 1.1
 startwert = 10
 zwischenwert = startwert + 5
@@ -79,7 +79,7 @@ bname =str(input("Bitte geben deinen Namen ein: "))
 balter =int(input("Bitte gebe dein Alter ein: "))
 bberuf =str(input("Welchen Beruf hast du? "))
 
-print(f"Danke für die Info {bname}.\n Dass du im stolzen Alter von {balter} Jahren noch als {bberuf} tätig bist, ist eine tolle Leistung. Respekt!")
+print(f"Danke für die Info {bname}.\nDass du im stolzen Alter von {balter} Jahren noch als {bberuf} tätig bist, ist eine tolle Leistung. Respekt!")
 
 # Aufgabe 6
 nurzahl =str(input("Bitte gebe eine Ziffernfolge ein: "))
@@ -87,7 +87,7 @@ if nurzahl.isdigit():
     print("Danke.")
 else:
     print("Bitte gebe nur Ziffern ein, keine Buchstaben und Sonderzeichen.")
-'''
+
 # Aufgabe 7
 ganzzahl = int(36)
 kommazahl = float(172.56)
@@ -98,3 +98,31 @@ print(ganzzahl, type(ganzzahl))
 print(kommazahl, type(kommazahl))
 print(zeichen, type(zeichen))
 print(logisch, type(logisch))
+
+# Aufgabe 8
+ganzezahl = int(3978)
+zahlmitkomma = float(ganzezahl)
+zahlalstext = str(ganzezahl)
+print(ganzezahl)
+print(zahlmitkomma)
+print(zahlalstext)
+
+# Aufgabe 9.1/9.2/9.3
+while True:
+    try:
+        zahleing = float(input("Bitte gebe eine Zahl ein, die durch 2 geteilt werden soll: "))
+        if zahleing < 0:
+            print("Die Zahl darf nicht negativ sein!")
+        elif zahleing == 0:
+            print("Teilung durch 0 nicht erlaubt!")
+        else:
+            ergebnis = float(zahleing / 2)
+            print(f"{zahleing} geteilt durch 2 ist: {ergebnis}!")
+            break
+    except ValueError:
+        print("Bitte gebe eine gültige Zahl ein.")
+
+
+
+
+
