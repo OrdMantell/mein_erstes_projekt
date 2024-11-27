@@ -1,0 +1,7 @@
+# Ignoriert allgemeine Daten
+node_modules/
+*.log
+*.swp
+
+# Ignoriert IDE-spezifische Daten
+.idea/
