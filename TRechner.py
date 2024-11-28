@@ -1,6 +1,5 @@
+
 rhistory = []
-#opname = str()
-#ops = str()
 
 # Rechenoperationen
 def rechnen(zahl1, zahl2, ops):
@@ -17,18 +16,13 @@ def rechnen(zahl1, zahl2, ops):
       return zahl1 / zahl2
   elif ops == "^":
     return zahl1 ** zahl2
+  elif ops == "Pw":
+    return (zahl1 * zahl2) / 100
+  elif ops == "%":
+    return (zahl2 / zahl1) * 100
+  elif ops == "Gw":
+    return zahl1 / (zahl2 / 100)
 
-
-''' noch in arbeit
-def pwert(grundw, psatz):
-  return (grundw * psatz) / 100
-
-def psatz(teilw, gesamtw):
-  return (teilw / gesamtw) * 100
-
-def grundw(teilw, psatz):
-  return teilw / (psatz / 100)
-'''
 
 
 # Bei Eingabe Komma in Punkt umwandeln, Ziffern prüfen, dann in float umwandeln
@@ -72,6 +66,10 @@ while True:
       print("Bitte gueltige Zahl eingeben!")
       continue
 
+  def showhistory():
+    showhist = " | ".join(reversed(rhistory))
+    print("letzte Berechnungen:", showhist)
+
 # Operationen zuweisen, an Funktionen übergegen und Ergebnis erhalten
   if auswahl == 1:
     opname = "addieren"
@@ -81,7 +79,6 @@ while True:
     zahl1 = eingabe1()
     zahl2 = eingabe2()
     ergebnis = rechnen(zahl1, zahl2, "+")
-
   elif auswahl == 2:
     opname = "subtrahieren"
     ops = "-"
@@ -90,7 +87,6 @@ while True:
     zahl1 = eingabe1()
     zahl2 = eingabe2()
     ergebnis = rechnen(zahl1, zahl2, "-")
-
   elif auswahl == 3:
     opname = "multiplizieren"
     ops = "x"
@@ -99,16 +95,14 @@ while True:
     zahl1 = eingabe1()
     zahl2 = eingabe2()
     ergebnis = rechnen(zahl1, zahl2, "x")
-
   elif auswahl == 4:
-    opname =" dividieren"
+    opname ="dividieren"
     ops = "/"
     ztxt1 = "die erste Zahl"
     ztxt2 = "den Teiler"
     zahl1 = eingabe1()
     zahl2 = eingabe2()
     ergebnis = rechnen(zahl1, zahl2, "/")
-
   elif auswahl == 5:
     opname = "hochrechnen"
     ops = "^"
@@ -117,7 +111,6 @@ while True:
     zahl1 = eingabe1()
     zahl2 = eingabe2()
     ergebnis = rechnen(zahl1, zahl2, "^")
-
   elif auswahl == 6:
     opname = "die Quadratwurzel ziehen"
     ztxt1 = "die Zahl"
@@ -125,8 +118,44 @@ while True:
     ergebnis = zahl1 ** 0.5 #nur Quadratwurzel
     print(f" √{zahl1} = {ergebnis:.2f}")
     rhistory.append(f" √{zahl1} = {ergebnis:.2f}")
-    continue # Ergebnis Wurzel anzeigen und spätere Ausgabe überspringen
-
+    showhistory()
+    continue
+  elif auswahl == 7:
+    opname = "den Prozentwert ermitteln"
+    ops = "Pw"
+    ztxt1 = "den Grundwert"
+    ztxt2 = "die Prozentzahl"
+    zahl1 = eingabe1()
+    zahl2 = eingabe2()
+    ergebnis = rechnen(zahl1, zahl2, "Pw")
+    print(f"{zahl2}% von {zahl1} = {ergebnis:.2f}")
+    rhistory.append(f"{zahl2}% von {zahl1} = {ergebnis:.2f}")
+    showhistory()
+    continue
+  elif auswahl == 8:
+    opname = "den Prozentsatz ermitteln"
+    ops = "%"
+    ztxt1 = "den Gesamtwert"
+    ztxt2 = "den Teilwert"
+    zahl1 = eingabe1()
+    zahl2 = eingabe2()
+    ergebnis = rechnen(zahl1, zahl2, "%")
+    print(f"{zahl2} von {zahl1} = {ergebnis:.2f}%")
+    rhistory.append(f"{zahl2} von {zahl1} = {ergebnis:.2f}%")
+    showhistory()
+    continue
+  elif auswahl == 9:
+    opname = "den Grundwert ermitteln"
+    ops = "Gw"
+    ztxt1 = "den Teilwert"
+    ztxt2 = "den Prozentsatz"
+    zahl1 = eingabe1()
+    zahl2 = eingabe2()
+    ergebnis = rechnen(zahl1, zahl2, "Gw")
+    print(f"{zahl1} = {zahl2}% von {ergebnis:.2f}")
+    rhistory.append(f"{zahl1} = {zahl2}% von {ergebnis:.2f}")
+    showhistory()
+    continue
   else:
     print("Waehle von 1 bis 9! (oder 0 zum Beenden)")
     continue
@@ -140,6 +169,5 @@ while True:
     print(f"{zahl1} {ops} {zahl2} = {ergebnis:.0f}")
     rhistory.append(f"{zahl1} {ops} {zahl2} = {ergebnis:.0f}")
   print("_" * 30)
-  showhistory = " | ".join(reversed(rhistory))
-  print("letzte Berechnungen:", showhistory)
+  showhistory()
 
